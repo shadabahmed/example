@@ -1,0 +1,38 @@
+:root {
+  --blue-color: #00B7FF;
+  --green-color: #00FFB7;
+  --coral-color: coral;
+}
+
+body {
+  padding-top: 70px;
+}
+body.blueBody {
+  background-color: var(--blue-color) !important;
+}
+body.greenBody {
+  background-color: var(--green-color) !important;
+}
+body.coralBody {
+  background-color: var(--coral-color) !important;
+}
+
+div.colorlist {
+  background-color: black;
+}
+p.indented {
+  padding-left: .3rem;
+}
+p.blueText {
+  color: var(--blue-color);
+}
+p.greenText {
+  color: var(--green-color);
+}
+p.coralText {
+  color: var(--coral-color);
+}
+
+#index-jumbotron {
+  margin-top: -10px;
+}

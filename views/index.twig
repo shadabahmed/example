@@ -1,0 +1,25 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div id="index-jumbotron" class="jumbotron text-center">
+        <h1 class="display-3">Example Application</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p>This is an example application. To change the background color, set the environment variable:</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col colorlist">
+      <p class="blueText indented"><strong>BGCOLOR=blue</strong></p>
+      <p class="greenText indented"><strong>BGCOLOR=green</strong></p>
+      <p class="coralText indented"><strong>BGCOLOR=anything else</strong></p>
+    </div>
+  </div>
+</div>
+{% endblock %}
