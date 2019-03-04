@@ -7,12 +7,14 @@ phases:
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
   pre_build:
     commands:
+      - printenv
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
       - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - git --version
   build:
     commands:
       - echo Build started on `date`
@@ -25,7 +27,7 @@ phases:
   post_build:
     commands:
       - >-
-        if expr "$RUN_POSTBUILD_STEPS" : "true" && expr "$CODEBUILD_BUILD_SUCCEEDING" : "1" ; then
+        if true ; then
           echo Build completed on `date`;
           echo Pushing the Docker images...;
           docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG;
