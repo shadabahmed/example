@@ -37,7 +37,7 @@ phases:
           zip imagedefinitions.zip imagedefinitions.json
           echo "Need to update this to only run on master branch"
         else
-          echo "You have specified a test-only buildspec, or the build failed. To push the container to ECR, set the environment variable RUN_POSTBUILD_STEPS=true";
+          echo "You have specified a test-only buildspec, or the build failed. To push the container to ECR, set the environment variable SHOULD_DEPLOY=true";
         fi
 artifacts:
   files: imagedefinitions.zip
