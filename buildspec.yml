@@ -35,6 +35,7 @@ phases:
           echo Writing image definitions file...;
           printf '[{"name":"%s","imageUri":"%s"}]' $IMAGE_REPO_NAME $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:latest > imagedefinitions.json;
           zip imagedefinitions.zip imagedefinitions.json
+          echo "Need to update this to only run on master branch"
         else
           echo "You have specified a test-only buildspec, or the build failed. To push the container to ECR, set the environment variable RUN_POSTBUILD_STEPS=true";
         fi
