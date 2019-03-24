@@ -1,7 +1,7 @@
 FROM node:10.14.2-jessie
 MAINTAINER Nobody
 
-ENV BGCOLOR=red
+ENV BGCOLOR=green
 
 WORKDIR /usr/src/canaryapp
 
